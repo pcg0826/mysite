@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온라인 1:1 AI 제작 & 영상 교육</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .sample-box { position: relative; overflow: hidden; border-radius: 0.75rem; height: 12rem; }
+        .sample-box img, .sample-box video { width: 100%; height: 100%; object-fit: cover; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="text-xl font-bold text-indigo-600">온라인 1:1 영상 마스터</div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#agency" class="hover:text-indigo-600">제작 대행</a>
+                <a href="#edu" class="hover:text-indigo-600">교육 서비스</a>
+                <a href="#all-in-one" class="hover:text-indigo-600">올인원 패키지</a>
+                <a href="#price" class="hover:text-indigo-600">가격 안내</a>
+            </div>
+            <a href="#contact" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-bold hover:bg-indigo-700 transition">문의하기</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white py-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                일반 사진 한 장으로 시작하는<br>놀라운 영상의 변화
+            </h1>
+            <p class="text-lg md:text-xl opacity-90 mb-10">
+                컴맹도 괜찮습니다. 사진 수정부터 AI 영상, 유튜브 교육까지<br>
+                1:1 맞춤형 온라인 서비스로 친절하게 안내해 드립니다.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#agency" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-bold text-lg shadow-lg">제작 대행 요청</a>
+                <a href="#edu" class="bg-indigo-900 bg-opacity-30 border border-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-opacity-40">유튜브 교육 신청</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Short Intro -->
+    <section class="py-12 bg-white border-b">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-600">어떤 서비스인가요?</h2>
+            <p class="text-lg leading-relaxed text-gray-600">
+                안녕하세요! 일반사진 수정, 말하는 영상, 유튜브 썸네일 제작은 물론<br class="hidden md:block">
+                유튜브 시작부터 영상편집, AI노래 제작 교육까지 도와드리고 있습니다.<br class="hidden md:block">
+                컴퓨터를 전혀 모르시는 초보분들도 <b>쉽고 친절하게 1:1로</b> 안내해 드립니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- 1. Agency Section (Updated with Media Samples) -->
+    <section id="agency" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <span class="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-bold mb-4">제작 대행</span>
+                    <h2 class="text-3xl font-bold mb-6">원하는 느낌으로 완성해 드립니다</h2>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>일반 사진 배경 변경 및 스타일 수정</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>사진 한 장으로 말하는 영상 제작</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>유튜브 클릭률을 높이는 썸네일 제작</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <span>가게 홍보용 짧은 영상 제작</span></li>
+                    </ul>
+                    <div class="bg-gray-100 p-4 rounded-lg italic text-gray-600">
+                        "평범한 사진을 더 멋지게 바꾸고 싶거나 홍보가 필요한 사장님께 추천드려요!"
+                    </div>
+                </div>
+                <!-- Media Samples Grid -->
+                <div class="md:w-1/2 grid grid-cols-2 gap-4">
+<!-- 1. Static Image Sample -->
+<div class="sample-box shadow-md border border-gray-200 relative">
+  <img src="sample.jpg" class="w-full h-full object-cover" alt="정적 이미지 샘플">
+  <div class="absolute bottom-2 left-2 bg-black bg-opacity-50 text-white text-[10px] px-2 py-0.5 rounded">
+    이미지 수정
+  </div>
+</div>
+
+<!-- 2. YouTube Video Sample -->
+<div class="sample-box shadow-md border border-gray-200 bg-black relative overflow-hidden">
+  <video controls playsinline poster="gaminsa.jpg" class="w-full h-full object-cover">
+    <source src="gaminsa.mp4" type="video/mp4">
+    브라우저가 비디오를 지원하지 않습니다.
+  </video>
+  <div class="absolute bottom-2 left-2 bg-indigo-600 text-white text-[10px] px-2 py-0.5 rounded z-10">
+    말하는 영상
+  </div>
+</div>
+
+<!-- 3. Netlify MP4 Video Sample -->
+<div class="sample-box shadow-md border border-gray-200 bg-black relative overflow-hidden">
+  <video controls playsinline poster="sunintro.jpg" class="w-full h-full object-cover">
+    <source src="sunintro.mp4" type="video/mp4">
+    브라우저가 비디오를 지원하지 않습니다.
+  </video>
+  <div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] px-2 py-0.5 rounded z-10">
+    홍보 영상
+  </div>
+</div>
+
+<!-- 4. Singing/Music Video Sample -->
+<div class="sample-box shadow-md border border-gray-200 bg-black relative overflow-hidden">
+  <video controls playsinline poster="gamvid.jpg" class="w-full h-full object-cover">
+    <source src="gamvid.mp4" type="video/mp4">
+    브라우저가 비디오를 지원하지 않습니다.
+  </video>
+  <div class="absolute bottom-2 left-2 bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded z-10">
+    AI 노래 영상
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('video').forEach(function(video) {
+  video.addEventListener('play', function() {
+    document.querySelectorAll('video').forEach(function(otherVideo) {
+      if (otherVideo !== video) {
+        otherVideo.pause();
+      }
+    });
+  });
+});
+</script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Education Section -->
+    <section id="edu" class="py-20 px-4 bg-indigo-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-white text-indigo-700 px-3 py-1 rounded-full text-sm font-bold mb-4 shadow-sm">1:1 교육</span>
+                <h2 class="text-3xl font-bold mb-4">컴맹도 가능한 유튜브 시작 & 영상편집</h2>
+                <p class="text-gray-600">이론보다 실습 중심! 차근차근 알려드립니다.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-6 text-xl">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">유튜브 기초</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">채널 개설, 방향성 설정, 브랜드 잡기, 업로드 및 조회수 관리 방법까지 마스터합니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-6 text-xl">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">영상 편집</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">자막 넣기, 컷편집, 모션 효과 등 핵심 편집 기술과 썸네일 제작법을 전수해 드립니다.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-6 text-xl">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AI 활용 & 수익화</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">AI로 노래 만들기, 저작권 등록 방법, 수익화 방향 등 트렌디한 기술을 배웁니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. All-in-one Package -->
+    <section id="all-in-one" class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto bg-gray-900 text-white rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
+            <div class="md:w-1/2 p-10 flex flex-col justify-center">
+                <h2 class="text-3xl font-bold mb-4">유튜브 올인원 교육</h2>
+                <p class="mb-6 opacity-80 leading-relaxed">처음부터 끝까지 책임집니다. 무엇을 해야 할지 모르는 초보분들을 위한 종합 패키지입니다.</p>
+                <div class="space-y-3 mb-8">
+                    <div class="flex items-center gap-2 text-sm"><i class="fas fa-check text-indigo-400"></i> 전 과정 온라인 1:1 진행</div>
+                    <div class="flex items-center gap-2 text-sm"><i class="fas fa-check text-indigo-400"></i> 질문 무한 반복 설명 가능</div>
+                    <div class="flex items-center gap-2 text-sm"><i class="fas fa-check text-indigo-400"></i> 채널 맞춤형 커리큘럼</div>
+                </div>
+            </div>
+            <div class="md:w-1/2 bg-indigo-600 p-10 flex flex-col justify-center text-center">
+                <div class="text-sm font-bold uppercase tracking-widest mb-2 opacity-80">BEST CHOICE</div>
+                <div class="text-4xl font-bold mb-6">올인원 패키지</div>
+                <div class="space-y-4 mb-8">
+                    <div class="bg-indigo-500 bg-opacity-40 p-3 rounded-lg">
+                        <span class="block text-sm">입문 4회 과정</span>
+                        <span class="text-xl font-bold">30만 원~</span>
+                    </div>
+                    <div class="bg-indigo-500 bg-opacity-40 p-3 rounded-lg border-2 border-indigo-300">
+                        <span class="block text-sm">기본 8회 과정</span>
+                        <span class="text-xl font-bold">60만 원~</span>
+                    </div>
+                </div>
+                <a href="#contact" class="bg-white text-indigo-600 py-3 rounded-lg font-bold hover:bg-gray-100 transition">상담 후 신청하기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Price Section -->
+    <section id="price" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">서비스 가격표</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Agency Price -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2 border-b pb-4">
+                        <i class="fas fa-tools text-indigo-500"></i> 제작 대행
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">사진 배경 수정/합성</span>
+                            <span class="font-bold">3만 원 ~</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">유튜브 썸네일 제작</span>
+                            <span class="font-bold">2만 원 ~</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">말하는 영상 제작</span>
+                            <span class="font-bold">5만 원 ~</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">가게 홍보영상 제작</span>
+                            <span class="font-bold">10만 원 ~</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Education Price -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2 border-b pb-4">
+                        <i class="fas fa-graduation-cap text-indigo-500"></i> 1:1 교육
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">1회 (60분)</span>
+                            <span class="font-bold">5만 원</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">1회 (90분)</span>
+                            <span class="font-bold">8만 원</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">4회 패키지</span>
+                            <span class="font-bold">28만 원 ~</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">8회 패키지</span>
+                            <span class="font-bold">55만 원 ~</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-8 text-center text-sm text-gray-400">
+                ※ 작업 난이도, 분량, 수정 범위, 장르에 따라 금액은 달라질 수 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- 6. Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-indigo-600 text-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">부담 없이 편하게 문의 주세요</h2>
+            <div class="text-lg opacity-90 space-y-2 mb-10">
+                <p>컴퓨터를 전혀 모르셔도 괜찮습니다. 처음부터 쉽게 설명해 드립니다.</p>
+                <p>원하시는 스타일과 목적에 맞춰 1:1로 맞춤 안내해 드립니다.</p>
+                <p>모든 제작 대행과 교육은 <b>온라인</b>으로 진행됩니다.</p>
+            </div>
+            <div class="bg-white p-6 md:p-10 rounded-3xl text-gray-800 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">원하시는 서비스</label>
+                        <select id="service-type" class="w-full border-gray-300 rounded-lg p-3 bg-gray-50">
+                            <option>제작 대행 문의</option>
+                            <option>1:1 교육 상담</option>
+                            <option>올인원 패키지 신청</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">성함 또는 상호</label>
+                        <input type="text" id="user-name" class="w-full border-gray-300 rounded-lg p-3 bg-gray-50" placeholder="성함을 입력하세요">
+                    </div>
+                </div>
+                <button onclick="handleContact()" class="w-full mt-8 bg-indigo-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-indigo-700 transition">
+                    카카오톡 / 문자로 상담하기
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-500 text-sm">
+        <p>© 2024 온라인 1:1 영상 마스터. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function handleContact() {
+            const service = document.getElementById('service-type').value;
+            const name = document.getElementById('user-name').value;
+            
+            if(!name) {
+                alert("성함을 입력해주세요!");
+                return;
+            }
+
+            const message = `${name}님, [${service}] 상담 신청이 예약되었습니다.\n확인 후 연락드리겠습니다.`;
+            const btn = document.querySelector('#contact button');
+            const originalText = btn.innerText;
+            btn.innerText = "상담 예약 완료!";
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert(message);
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 500);
+        }
+    </script>
+	
+	<script src="https://www.youtube.com/iframe_api"></script>
+
+		<script>
+		let ytPlayer;
+
+		function onYouTubeIframeAPIReady() {
+		  ytPlayer = new YT.Player('ytPlayer', {
+			events: {
+			  onStateChange: function(event) {
+				if (event.data === YT.PlayerState.PLAYING) {
+				  document.querySelectorAll('video').forEach(v => v.pause());
+				}
+			  }
+			}
+		  });
+		}
+
+		document.querySelectorAll('video').forEach(video => {
+		  video.addEventListener('play', () => {
+			if (ytPlayer && ytPlayer.pauseVideo) {
+			  ytPlayer.pauseVideo();
+			}
+			document.querySelectorAll('video').forEach(v => {
+			  if (v !== video) v.pause();
+			});
+		  });
+		});
+		</script>
+</body>
+</html>
