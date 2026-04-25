@@ -261,26 +261,35 @@ document.querySelectorAll('video').forEach(function(video) {
     </section>
 
     <!-- 6. Contact Section -->
-<section id="contact" class="py-20 px-4 bg-indigo-600 text-white">
-    <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-6">부담 없이 편하게 문의 주세요</h2>
-        <div class="text-lg opacity-90 space-y-2 mb-10">
-            <p>컴퓨터를 전혀 모르셔도 괜찮습니다. 처음부터 쉽게 설명해 드립니다.</p>
-            <p>원하시는 스타일과 목적에 맞춰 1:1로 맞춤 안내해 드립니다.</p>
-            <p>모든 제작 대행과 교육은 <b>온라인</b>으로 진행됩니다.</p>
+    <section id="contact" class="py-20 px-4 bg-indigo-600 text-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">부담 없이 편하게 문의 주세요</h2>
+            <div class="text-lg opacity-90 space-y-2 mb-10">
+                <p>컴퓨터를 전혀 모르셔도 괜찮습니다. 처음부터 쉽게 설명해 드립니다.</p>
+                <p>원하시는 스타일과 목적에 맞춰 1:1로 맞춤 안내해 드립니다.</p>
+                <p>모든 제작 대행과 교육은 <b>온라인</b>으로 진행됩니다.</p>
+            </div>
+            <div class="bg-white p-6 md:p-10 rounded-3xl text-gray-800 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">원하시는 서비스</label>
+                        <select id="service-type" class="w-full border-gray-300 rounded-lg p-3 bg-gray-50">
+                            <option>제작 대행 문의</option>
+                            <option>1:1 교육 상담</option>
+                            <option>올인원 패키지 신청</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">성함 또는 상호</label>
+                        <input type="text" id="user-name" class="w-full border-gray-300 rounded-lg p-3 bg-gray-50" placeholder="성함을 입력하세요">
+                    </div>
+                </div>
+                <button onclick="handleContact()" class="w-full mt-8 bg-indigo-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-indigo-700 transition">
+                    카카오톡 / 문자로 상담하기
+                </button>
+            </div>
         </div>
-
-        <div class="bg-white p-6 md:p-10 rounded-3xl text-gray-800 shadow-xl">
-
-            <!-- 버튼만 남김 -->
-            <a href="https://open.kakao.com/o/sTWFh0ri" target="_blank"
-               class="block w-full mt-4 bg-indigo-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-indigo-700 transition text-center">
-               카카오톡 상담하기
-            </a>
-
-        </div>
-    </div>
-</section>
+    </section>
 
     <footer class="py-10 text-center text-gray-500 text-sm">
         <p>© 2024 온라인 1:1 영상 마스터. All rights reserved.</p>
