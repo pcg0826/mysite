@@ -134,10 +134,18 @@
                 </div>
                 
                 <div class="md:w-1/2 grid grid-cols-2 gap-4">
-                    <div class="sample-box shadow-md border border-gray-800 relative overflow-hidden">
-                        <img src="sample.jpg" alt="샘플">
-                        <div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] px-2 py-0.5 rounded z-10">썸네일 맞춤 제작</div>
-                    </div>
+				<div class="sample-box shadow-md border border-gray-800 relative overflow-hidden flex">
+					<a href="samplem.jpg" target="_blank" class="md:hidden w-full h-full">
+						<img src="samplem.jpg" alt="샘플" class="w-full h-full object-cover block">
+					</a>
+					
+					<a href="sample.jpg" target="_blank" class="hidden md:block w-full h-full">
+						<img src="sample.jpg" alt="샘플" class="w-full h-full object-cover block">
+					</a>
+					
+					<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] px-2 py-0.5 rounded z-10">썸네일 맞춤 제작</div>
+				</div>
+
 
                     <div class="sample-box shadow-md bg-black border border-gray-800 relative overflow-hidden">
                         <video controls playsinline poster="gaminsa.jpg">
