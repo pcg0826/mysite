@@ -3,390 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>픽셀톡 - 유튜브·SNS·AI영상·홈페이지</title>
+    <title>픽셀톡 - 1:1 맞춤형 유튜브·AI영상·웹 제작 및 교육</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
         body { 
             font-family: 'Noto Sans KR', sans-serif; 
             scroll-behavior: smooth; 
-            /* [CSS 보안] 텍스트 선택 및 드래그 방지 */
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-touch-callout: none;
+            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
         }
         .gradient-bg { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
-        .card-hover:hover { transform: translateY(-8px); transition: all 0.3s ease; }
-        .sample-box { position: relative; overflow: hidden; border-radius: 1rem; height: 14rem; }
-        .sample-box img, .sample-box video { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* 이미지 드래그 방지 */
-        img { -webkit-user-drag: none; }
-
-        /* 다크모드 전용 카드 스타일 */
         .price-card { transition: all 0.3s ease; border: 1px solid #374151; background-color: #1e1e1e; }
-        .price-card:hover { border-color: #6366f1; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
-        
-        #mobile-menu { transition: all 0.3s ease-in-out; }
+        .price-card:hover { border-color: #6366f1; transform: translateY(-5px); }
+        .sample-box { position: relative; overflow: hidden; border-radius: 1rem; background: #000; }
         #mobile-menu.show { display: block !important; }
+        .badge-sale { background: #ef4444; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
     </style>
 </head>
-<body class="bg-[#121212] text-gray-100" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<body class="bg-[#121212] text-gray-100" oncontextmenu="return false">
 
     <nav class="sticky top-0 z-50 bg-[#1e1e1e]/90 backdrop-blur-md shadow-lg border-b border-gray-800">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-			
-			<!-- 로고 -->
-			<a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
-				<img src="logo.png" alt="픽셀톡 로고" style="width: 45px; height: 45px; object-fit: contain;">
-				<div class="text-2xl font-black text-indigo-400">픽셀톡</div>
-			</a>
-            
+            <a href="#" class="flex items-center gap-3">
+                <img src="logo.png" alt="픽셀톡 로고" style="width: 45px; height: 45px; object-fit: contain;">
+                <div class="text-2xl font-black text-indigo-400">픽셀톡</div>
+            </a>
+
             <div class="hidden md:flex space-x-8 font-bold text-gray-300">
-                <a href="#intro" class="hover:text-indigo-400">강사소개</a>
-                <a href="#agency" class="hover:text-indigo-400">제작대행</a>
-                <a href="#edu" class="hover:text-indigo-400">맞춤교육</a>
-                <a href="#price" class="hover:text-indigo-400">가격안내</a>
+                <a href="#intro" class="hover:text-indigo-400">강사 소개</a>
+                <a href="#all-in-one" class="hover:text-indigo-400">패키지 소개</a>
+                <a href="#agency" class="hover:text-indigo-400">샘플 영상</a>
+                <a href="#price" class="hover:text-indigo-400">서비스 안내</a>
             </div>
-            
-            <div class="flex items-center gap-2">
-                <a href="https://open.kakao.com/o/sTWFh0ri" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-indigo-500 transition">상담하기</a>
-                <button id="menu-btn" class="md:hidden text-gray-300 p-2 focus:outline-none">
+
+            <div class="flex items-center gap-4">
+                <a href="https://open.kakao.com/o/sTWFh0ri" target="_blank" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-bold hover:bg-indigo-500 transition text-sm">상담신청</a>
+                
+                <button id="menu-btn" class="md:hidden text-gray-300 hover:text-indigo-400 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="md:hidden bg-[#1e1e1e] border-t border-gray-800 shadow-xl hidden">
-            <div class="flex flex-col py-4 space-y-4 px-6 font-bold text-gray-300">
-                <a href="#intro" class="hover:text-indigo-400">강사소개</a>
-                <a href="#agency" class="hover:text-indigo-400">제작대행</a>
-                <a href="#edu" class="hover:text-indigo-400">맞춤교육</a>
-                <a href="#price" class="hover:text-indigo-400">가격안내</a>
+        <div id="mobile-menu" class="hidden bg-[#1e1e1e] border-b border-gray-800 md:hidden">
+            <div class="px-4 py-6 space-y-4 font-bold text-gray-300">
+                <a href="#intro" class="block hover:text-indigo-400" onclick="toggleMenu()">강사 소개</a>
+                <a href="#all-in-one" class="block hover:text-indigo-400" onclick="toggleMenu()">패키지 소개</a>
+                <a href="#agency" class="block hover:text-indigo-400" onclick="toggleMenu()">샘플 영상</a>
+                <a href="#price" class="block hover:text-indigo-400" onclick="toggleMenu()">서비스 안내</a>
             </div>
         </div>
     </nav>
 
     <header class="gradient-bg text-white py-24 px-4 text-center">
         <div class="max-w-4xl mx-auto">
-            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm font-bold mb-6">16년 경력 개발자 & 13년차 유튜버</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-8 leading-tight">
-                유튜브·SNS·AI영상·웹<br><span class="text-indigo-200">1:1 맞춤형 전문 강의</span>
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm font-bold mb-6 italic">"경력은 숫자로, 실력은 결과물로 증명합니다"</span>
+            <h1 class="text-4xl md:text-6xl font-black mb-8 leading-tight">
+                유튜브·SNS·AI영상·웹<br><span class="text-yellow-300">1:1 맞춤형 전문 강의</span>
             </h1>
-            <p class="text-lg md:text-xl opacity-90 mb-12 font-light">
-                컴퓨터 전혀 몰라도 됩니다. 컴퓨터 켜는 법부터 알려드립니다.<br class="hidden md:block">
-                1:1 원격 강의로 당신을 콘텐츠 크리에이터로 만들어 드립니다.
+            <p class="text-lg md:text-xl opacity-90 mb-12 font-light leading-relaxed">
+                16년차 개발자의 기술력과 13년차 유튜버의 수익화 노하우를 합쳤습니다.<br class="hidden md:block">
+                학원 가서 진도 못 따라가고 돈 낭비하지 마세요. 1:1로 끝까지 함께합니다.
             </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#all-in-one" class="bg-white text-indigo-600 px-10 py-4 rounded-xl font-bold text-lg shadow-xl hover:bg-gray-100 transition">7일 완성 패키지 보기</a>
-                <a href="#price" class="bg-indigo-900/30 border border-white/50 px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition">가격표 바로가기</a>
-            </div>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+            <a href="#all-in-one" class="bg-[#1e1e1e] border-2 border-yellow-500/50 px-10 py-5 rounded-2xl shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:border-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] transition-all duration-300 group">
+                <span class="text-xs block text-yellow-500 font-bold mb-1">[당근 오픈 특가 10% 할인 중]</span>
+                <span class="text-xl font-black text-white group-hover:text-yellow-400">7일 완성 풀패키지 보기</span>
+            </a>
+        </div>
         </div>
     </header>
 
-    <section id="intro" class="py-16 bg-[#121212] border-b border-gray-800">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <h2 class="text-3xl font-bold text-white">검증된 전문가와 함께하세요</h2>
-                    <p class="text-gray-400 leading-relaxed">경력은 속일 수 있어도 실력은 속일 수 없습니다. 대기업 프로젝트를 수행하던 기술력과 다수 채널의 수익화(유튜브,SNS,저작권) 등 유튜버의 감각을 모두 알려드립니다.</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-indigo-900/50 rounded-full flex items-center justify-center text-indigo-400 border border-indigo-500/30"><i class="fas fa-code"></i></div>
-                            <div><p class="font-bold text-white">16년 경력 개발자</p><p class="text-sm text-gray-500">경북대 컴공졸업, 대기업/공공기관 프리랜서</p></div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-red-900/20">
-                                <i class="fab fa-youtube text-2xl"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-white">13년차 실전 유튜버</p>
-                                <p class="text-sm text-gray-500">유튜브·SNS 다수 채널 운영 및 수익화</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-green-900/50 rounded-full flex items-center justify-center text-green-400 border border-green-500/30"><i class="fas fa-desktop"></i></div>
-                            <div><p class="font-bold text-white">1:1 맞춤형 원격 강의</p><p class="text-sm text-gray-500">완전 초보도 가능, 언제나 편하게 질문 주세요</p></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-[#1e1e1e] p-8 rounded-3xl border border-gray-800 shadow-xl">
-                    <p class="text-lg font-medium text-gray-300 italic mb-4">"왕초보 기초부터 활용까지 제작의 모든 과정을 1:1 강의로 함께 완성합니다."</p>
-                </div>
+    <section id="intro" class="py-20 bg-[#121212] border-b border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">왜 '픽셀톡'이어야 할까요?</h2>
+            <div class="w-20 h-1 bg-indigo-500 mx-auto"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center">
+            <div class="p-8 bg-[#1e1e1e] rounded-3xl border border-indigo-500/50 shadow-[0_0_20px_-5px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.6)] transition-all duration-300">
+                <i class="fas fa-history text-4xl text-indigo-400 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4">13년의 실전 데이터</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">단순 편집자가 아닙니다. 다수의 유튜브, 페이스북, 음원 저작권 수익화를 직접 운영 중입니다.</p>
+            </div>
+            <div class="p-8 bg-[#1e1e1e] rounded-3xl border border-indigo-500/50 shadow-[0_0_20px_-5px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.6)] transition-all duration-300">
+                <i class="fas fa-code text-4xl text-indigo-400 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4">16년 경력 기술력</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">대기업 프로젝트를 수행하던 전업 개발자입니다. 홈페이지 제작부터 복잡한 AI 툴 설정까지 막힘없이 해결해 드립니다.</p>
+            </div>
+            <div class="p-8 bg-[#1e1e1e] rounded-3xl border border-indigo-500/50 shadow-[0_0_20px_-5px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.6)] transition-all duration-300">
+                <i class="fas fa-user-shield text-4xl text-yellow-400 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4">100% 결과 보장</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">첫 상담 후 만족하지 못하시면 즉시 환불해 드립니다. 후기가 없어 망설여지신다면 지금이 가장 저렴하게 배울 기회입니다.</p>
             </div>
         </div>
     </section>
 
-    <section id="agency" class="py-20 px-4 bg-[#121212]">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <span class="text-indigo-400 font-bold">Agency Service</span>
-                    <h2 class="text-3xl font-bold mt-2 mb-6 text-white">전문가의 손길로<br>완성도를 높이세요</h2>
-                    <div class="grid grid-cols-1 gap-4 mb-8 text-gray-300">
-                        <div class="flex items-center gap-3 p-4 bg-[#1e1e1e] rounded-xl border border-gray-800"><i class="fas fa-laptop-code text-indigo-500"></i> 반응형 홍보용 홈페이지 제작</div>
-                        <div class="flex items-center gap-3 p-4 bg-[#1e1e1e] rounded-xl border border-gray-800"><i class="fas fa-play-circle text-red-500"></i> AI 홍보 영상 및 말하는 영상 제작</div>
-                        <div class="flex items-center gap-3 p-4 bg-[#1e1e1e] rounded-xl border border-gray-800"><i class="fas fa-bug text-orange-500"></i> 코드 수정 및 오류 해결</div>
-                    </div>
-                </div>
-                
-                <div class="md:w-1/2 grid grid-cols-2 gap-4">
-				<div class="sample-box shadow-md border border-gray-800 relative overflow-hidden flex">
-					<a href="samplem.jpg" target="_blank" class="md:hidden w-full h-full">
-						<img src="samplem.jpg" alt="샘플" class="w-full h-full object-cover block">
-					</a>
-					
-					<a href="sample.jpg" target="_blank" class="hidden md:block w-full h-full">
-						<img src="sample.jpg" alt="샘플" class="w-full h-full object-cover block">
-					</a>
-					
-					<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] px-2 py-0.5 rounded z-10">썸네일 맞춤 제작</div>
-				</div>
-
-
-                    <div class="sample-box shadow-md bg-black border border-gray-800 relative overflow-hidden">
-                        <video controls playsinline poster="gaminsa.jpg">
-                            <source src="gaminsa.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute bottom-2 left-2 bg-indigo-600 text-white text-[10px] px-2 py-0.5 rounded z-10">AI 말하는 영상 제작</div>
-                    </div>
-
-                    <div class="sample-box shadow-md bg-black border border-gray-800 relative overflow-hidden">
-                        <video controls playsinline poster="sunintro.jpg">
-                            <source src="sunintro.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute bottom-2 left-2 bg-indigo-600 text-white text-[10px] px-2 py-0.5 rounded z-10">AI 홍보 영상 제작</div>
-                    </div>
-
-                    <div class="sample-box shadow-md bg-black border border-gray-800 relative overflow-hidden">
-                        <video controls playsinline poster="gamvid.jpg">
-                            <source src="gamvid.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute bottom-2 left-2 bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded z-10">AI 노래 영상 제작</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="edu" class="py-20 px-4 bg-[#121212]">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-white">배우고 싶은 것만 쏙쏙!</h2>
-                <p class="text-gray-500">모든 강의는 온라인 1:1 원격으로 진행됩니다.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="p-8 rounded-2xl shadow-sm border price-card">
-                    <h3 class="text-xl font-bold mb-4 text-indigo-400">AI 콘텐츠 마스터</h3>
-                    <ul class="text-sm text-gray-400 space-y-3 mb-6">
-                        <li>• AI 툴 설정 및 기본 사용법 설명</li>
-                        <li>• 실전! 장소/사람/사물 이미지 생성</li>
-                        <li>• 사진 한 장으로 말하고 움직이는 영상 제작</li>
-                        <li>• 트로트, 가요 등 장르별 AI 음악 제작</li>
-                    </ul>
-                    <p class="font-bold border-t border-gray-700 pt-4 text-white">2회 강의 (총 120분)</p>
-                </div>
-                <div class="p-8 rounded-2xl shadow-sm border price-card">
-                    <h3 class="text-xl font-bold mb-4 text-red-400">Vegas Pro 영상 편집</h3>
-                    <ul class="text-sm text-gray-400 space-y-3 mb-6">
-                        <li>• 베가스 설치 및 환경설정 세팅</li>
-                        <li>• 컷 편집, 모션 효과, 자막 생성</li>
-                        <li>• 롱폼/숏폼 맞춤형 BGM 삽입</li>
-                        <li>• 클릭을 부르는 썸네일 제작</li>
-                    </ul>
-                    <p class="font-bold border-t border-gray-700 pt-4 text-white">3회 강의 (회당 60분)</p>
-                </div>
-                <div class="p-8 rounded-2xl shadow-sm border price-card">
-                    <h3 class="text-xl font-bold mb-4 text-green-400">음원 저작권 & 수익화</h3>
-                    <ul class="text-sm text-gray-400 space-y-3 mb-6">
-                        <li>• 내가 만든 노래 저작권 정식 음원 등록</li>
-                        <li>• 음원 유통사 아티스트 등록 대행 가이드</li>
-                        <li>• 유튜브 아티스트 OAC 채널 연동</li>
-                        <li>• 음원 판매 등록 안내 및 수익 정산 방법</li>
-                    </ul>
-                    <p class="font-bold border-t border-gray-700 pt-4 text-white">2회 강의 (회당 60분)</p>
-                </div>
-                <div class="p-8 rounded-2xl shadow-sm border price-card flex flex-col h-full">
-                    <h3 class="text-xl font-bold mb-4 text-blue-400">SNS 초보 마스터</h3>
-                    <ul class="text-sm text-gray-400 space-y-3 mb-6 flex-grow">
-                        <li>• SNS : 페이스북, 인스타, 틱톡 계정생성 </li>
-                        <li>• 사용방법 안내 사진/영상 업로드 및 글쓰기</li>
-                        <li>• 채널 관리 및 팔로워 소통 노하우</li>
-                        <li><span class="text-white">* [유료 부가 서비스] AI 숏폼 영상 제작</span></li>
-                    </ul>
-                    <p class="font-bold border-t border-gray-700 pt-4 text-white">1회 강의 (60분)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="all-in-one" class="py-20 px-4 bg-[#0f172a]">
-        <div class="max-w-5xl mx-auto space-y-8">
-            <div class="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+    <section id="all-in-one" class="py-24 px-4 bg-[#0f172a]">
+        <div class="max-w-5xl mx-auto">
+            <div class="rounded-3xl overflow-hidden border-2 border-indigo-500 shadow-[0_0_50px_-12px_rgba(79,70,229,0.5)]">
                 <div class="grid md:grid-cols-2">
                     <div class="p-12 space-y-6 bg-indigo-900/40">
-                        <span class="bg-indigo-500 px-3 py-1 rounded text-xs font-bold uppercase">가장 많이 찾는 서비스</span>
-                        <h2 class="text-4xl font-bold text-white">유튜브 7일 완성<br>올인원 패키지</h2>
-                        <p class="text-gray-300">영상 제작부터 편집, 썸네일, 업로드까지 1:1로 함께 진행하며 초보자도 혼자 운영할 수 있도록 전체 제작 흐름을 단계별로 알려드립니다.</p>
+                        <span class="bg-red-500 px-3 py-1 rounded text-xs font-bold uppercase">가성비 압도적 1위</span>
+                        <h2 class="text-4xl font-black text-white">유튜브 7일 완성<br>올인원 풀패키지</h2>
+                        <p class="text-gray-300">
+                            따로따로 배우면 최소 100만 원이 넘는 과정입니다. <br>
+                            <strong>기획 + AI 영상 제작 + 베가스 편집 + 채널 브랜딩 + 수익화 노하우</strong>를 한 번에 끝내세요.
+                        </p>
                         <ul class="space-y-3 text-sm text-gray-300">
-                            <li><i class="fas fa-check mr-2 text-indigo-400"></i> 1~3일차: 채널 브랜드 구축 & AI 소스 제작</li>
-                            <li><i class="fas fa-check mr-2 text-indigo-400"></i> 4~6일차: 베가스 프로 실전 편집 & BGM</li>
-                            <li><i class="fas fa-check mr-2 text-indigo-400"></i> 7일차: 최종 업로드 노하우 & 수익화 안내</li>
+                            <li><i class="fas fa-check-circle mr-2 text-yellow-400"></i> 타사 학원 대비 수강료 50% 이상 절감</li>
+                            <li><i class="fas fa-check-circle mr-2 text-yellow-400"></i> AI를 활용한 제작 시간 3배 단축 기술</li>
+                            <li><i class="fas fa-check-circle mr-2 text-yellow-400"></i> 무료 상담 지원 (강의 종료 후에도 언제든 질문!)</li>
                         </ul>
                     </div>
                     <div class="bg-[#1e1e1e] p-12 flex flex-col justify-center text-center">
-                        <p class="text-gray-500 mb-2">초보자 전용 1:1 풀코스</p>
-                        <div class="text-5xl font-black mb-8 text-indigo-400">490,000<span class="text-lg text-gray-500 font-normal">원</span></div>
-                        <a href="https://open.kakao.com/o/sTWFh0ri" target="_blank" class="bg-indigo-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-indigo-500 transition">지금 신청하기</a>
+                        <p class="text-yellow-500 line-through text-lg mb-1 italic">타 사이트 가격 98만~300만 원대</p>
+                        <div class="text-6xl font-black mb-4 text-indigo-400">490,000<span class="text-xl text-gray-500 font-normal ml-1">원</span></div>
+                        <p class="text-yellow-300 font-bold mb-8 italic">"7일 뒤, 내 채널에 첫 작품이 공개됩니다"</p>
+                        <a href="https://open.kakao.com/o/sTWFh0ri" target="_blank" class="bg-indigo-600 text-white py-5 rounded-2xl font-black text-2xl hover:bg-indigo-500 transition shadow-lg">무료 상담 신청하기</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                <div class="grid md:grid-cols-2">
-                    <div class="p-12 space-y-6 bg-[#1a1c2e]">
-                        <span class="bg-indigo-600 px-3 py-1 rounded text-xs font-bold uppercase text-white">전문가 맞춤 서비스</span>
-                        <h2 class="text-4xl font-bold text-white leading-tight">반응형 + 랜딩<br>홈페이지 제작</h2>
-                        <p class="text-gray-300">방문자의 마음을 움직이는 고퀄리티 랜딩 페이지를 제작해 드립니다. PC부터 모바일까지 완벽하게 대응합니다.</p>
-                        <ul class="space-y-3 text-sm text-gray-300">
-                            <li class="flex items-center">
-                                <svg class="w-4 h-4 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                최신 반응형 랜딩 페이지(PC,모바일)
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-4 h-4 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                기본 제작 + 무료수정 1회
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-4 h-4 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                개발 완료 후 도메인 연결 및 서버 설정 지원
-                            </li>
-                        </ul>
+    <section id="agency" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">픽셀톡의 실제 결과물</h2>
+                <p class="text-yellow-500">※ 웹 재생은 저화질이며, 실제 원본은 고화질입니다.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-6">
+                <div class="sample-box relative rounded-3xl overflow-hidden border border-indigo-500/50 shadow-[0_0_20px_-5px_rgba(79,70,229,0.4)] aspect-video h-auto">
+                    <a href="sample.jpg" target="_blank" class="w-full h-full block"><img src="sample.jpg" alt="샘플" class="w-full h-full object-cover"></a>
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 pointer-events-none">
+                        <span class="bg-red-600 text-white text-xs px-2 py-1 rounded">클릭을 부르는 썸네일</span>
                     </div>
-                    <div class="bg-[#24262b] p-12 flex flex-col justify-center text-center">
-                        <p class="text-gray-500 mb-2">반응형(PC,모바일) 홈페이지 제작</p>
-                        <div class="text-5xl font-black mb-8 text-indigo-400">350,000<span class="text-lg text-gray-500 font-normal">원</span></div>
-                        <a href="https://open.kakao.com/o/sTWFh0ri" target="_blank" class="bg-indigo-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-indigo-500 transition">지금 신청하기</a>
+                </div>
+                <div class="sample-box relative rounded-3xl overflow-hidden border border-indigo-500/50 shadow-[0_0_20px_-5px_rgba(79,70,229,0.4)] bg-black aspect-video h-auto">
+                    <video controls playsinline poster="longimg.jpg" class="w-full h-full block object-contain"><source src="longvid.mp4" type="video/mp4"></video>
+                    <div class="absolute top-4 left-4 badge-sale z-10">(샘플)-AI 노래/롱폼영상</div>
+                </div> 
+                <div class="sample-box relative rounded-3xl overflow-hidden border border-indigo-500/50 shadow-[0_0_20px_-5px_rgba(79,70,229,0.4)] bg-black aspect-video h-auto">
+                    <video controls playsinline poster="gamvid.jpg" class="w-full h-full block object-contain"><source src="gamvid.mp4" type="video/mp4"></video>
+                    <div class="absolute top-4 left-4 badge-sale z-10">(샘플)-AI 노래/숏폼영상</div>
+                </div>
+                <div class="sample-box relative rounded-3xl overflow-hidden border border-indigo-500/50 shadow-[0_0_20px_-5px_rgba(79,70,229,0.4)] bg-black aspect-video h-auto">
+                    <video controls playsinline poster="gaminsa.jpg" class="w-full h-full block object-contain"><source src="gaminsa.mp4" type="video/mp4"></video>
+                    <div class="absolute top-4 left-4 badge-sale z-10">(샘플)-AI 말하는 영상</div>
+                </div>
+                <div class="sample-box relative rounded-3xl overflow-hidden border border-indigo-500/50 shadow-[0_0_20px_-5px_rgba(79,70,229,0.4)] bg-black aspect-video h-auto">
+                    <video controls playsinline poster="sunintro.jpg" class="w-full h-full block object-contain"><source src="sunintro.mp4" type="video/mp4"></video>
+                    <div class="absolute top-4 left-4 badge-sale z-10">(샘플)-AI 홍보 영상</div>
+                </div>
+                <div class="sample-box relative rounded-3xl overflow-hidden border border-indigo-500/50 shadow-[0_0_20px_-5px_rgba(79,70,229,0.4)] aspect-video h-auto">
+                    <a href="sample2.jpg" target="_blank" class="w-full h-full block"><img src="sample2.jpg" alt="샘플" class="w-full h-full object-cover"></a>
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 pointer-events-none">
+                        <span class="bg-red-600 text-white text-xs px-2 py-1 rounded">클릭을 부르는 썸네일</span>
                     </div>
                 </div>
             </div>
+            <p class="text-center mt-12 text-yellow-500 text-sm">* 모든 샘플은 실제 픽셀톡 기술로 제작되었습니다.</p>
         </div>
     </section>
 
     <section id="price" class="py-20 px-4 bg-[#0a0a0a]">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center text-white">서비스 단가표</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-[#1e1e1e] rounded-3xl shadow-sm overflow-hidden border border-gray-800">
-                    <div class="bg-indigo-900/80 p-6 text-white text-center font-bold text-xl border-b border-indigo-500/20">1:1 맞춤 교육 프로그램</div>
-                    <div class="p-8 space-y-6 text-gray-300">
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-800">
-                            <span>유튜브 7일 완성 패키지</span>
-                            <span class="font-bold text-indigo-400">490,000원</span>
-                        </div>
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-800">
-                            <span>AI 콘텐츠 마스터</span>
-                            <span class="font-bold text-white">150,000원</span>
-                        </div>
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-800">
-                            <span>Vegas Pro 영상 편집</span>
-                            <span class="font-bold text-white">200,000원</span>
-                        </div>
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-800">
-                            <span>음원 저작권 & 수익화</span>
-                            <span class="font-bold text-white">150,000원</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span>SNS 채널 마스터</span>
-                            <span class="font-bold text-white">50,000원</span>
-                        </div> 
-                     </div>  
-                     <div class="p-6 bg-[#252525] text-gray-500 text-center border-t border-gray-800">
-                        ※ 평일/주말/공휴일 맞춤 강의 가능
-                     </div>
-                </div>
+         
+          
 
-                <div class="bg-[#1e1e1e] rounded-3xl shadow-sm overflow-hidden border border-gray-800">
-                    <div class="bg-gray-800 p-6 text-white text-center font-bold text-xl border-b border-gray-700">제작 대행 & 기술 지원</div>
-                    <div class="p-8 space-y-6 text-gray-300">
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-800 text-indigo-400 font-bold">
-                            <span>반응형 홈페이지 제작</span>
-                            <span>350,000원 ~</span>
+<h2 class="text-3xl font-bold mb-2 text-center">1:1 맞춤 서비스 단가표</h2>
+
+<div class="text-center mb-12">
+    <span class="text-yellow-400 text-sm font-medium">
+        타 사이트 가격 비교 환영~! 압도적 가성비가 아니면 시작도 안 했습니다.
+    </span>
+</div>
+
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-[#1e1e1e] rounded-3xl border border-gray-800 overflow-hidden">
+                    <div class="bg-indigo-900/80 p-6 text-center font-bold text-xl text-white">1:1 맞춤 교육</div>
+                    <div class="p-8 space-y-8">
+                        <div class="border-b border-gray-800 pb-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <span class="text-lg font-bold block">유튜브 7일 완성</span>
+                                    <span class="text-xs text-indigo-400 font-medium">7회 강의 (회당 60분)</span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-[10px] text-yellow-500 line-through mb-0.5">타 사이트 99만~300만 원대</div>
+                                    <span class="font-bold text-indigo-400 text-lg">49만 원</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-1">기획+AI소스 제작+베가스 실전 편집+브랜딩+수익화 노하우 (전체과정)</p>
                         </div>
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-800">
-                            <span>유튜브 썸네일 제작</span>
-                            <span class="font-bold text-white">10,000원 ~</span>
+                        <div class="border-b border-gray-800 pb-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div><span class="text-lg font-bold block">AI 콘텐츠 마스터</span><span class="text-xs text-indigo-400 font-medium">2회 강의 (회당 50분)</span></div>
+                                <div class="text-right"><span>15만 원</span></div>
+                            </div>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-1">AI 툴 설정+장르별 AI 음악 제작+저작권등록+이미지 생성+말하는 영상</p>
                         </div>
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-800">
-                            <span>AI 말하는 영상</span>
-                            <span class="font-bold text-white">50,000원 ~</span>
+                        <div class="border-b border-gray-800 pb-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div><span class="text-lg font-bold block">Vegas Pro 영상 편집</span><span class="text-xs text-indigo-400 font-medium">3회 강의 (회당 50분)</span></div>
+                                <div class="text-right"><span>20만 원</span></div>
+                            </div>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-1">환경 세팅+컷 편집/자막/모션+숏폼/롱폼 맞춤형 BGM/썸네일제작</p>
                         </div>
-                        <div class="flex justify-between items-center pb-4 border-b border-gray-800">
-                            <span>AI 홍보 영상</span>
-                            <span class="font-bold text-white">50,000원 ~</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span>코드 수정 및 유지보수</span>
-                            <span class="text-indigo-400 font-bold underline italic">상담 후 결정</span>
+                        <div class="border-b border-gray-800 pb-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <div><span class="text-lg font-bold block">SNS 초보 마스터</span><span class="text-xs text-indigo-400 font-medium">1회 강의 (회당 50분)</span></div>
+                                <div class="text-right"><span>20만 원</span></div>
+                            </div>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-1">계정 생성+사용법+사진/영상 업로드 가이드+팔로워 소통 기초</p>
                         </div>
                     </div>
-                    <div class="p-6 bg-[#252525] text-gray-500 text-center border-t border-gray-800">
-                        ※ 작업 범위와 난이도에 따라 협의 가능
+                </div>
+                <div class="bg-[#1e1e1e] rounded-3xl border border-gray-800 overflow-hidden text-white">
+                    <div class="bg-gray-800 p-6 text-center font-bold text-xl">제작 대행</div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between border-b border-gray-800 pb-4 items-center">
+                            <div>
+                                <span class="text-lg font-bold block">반응형 홈페이지</span>
+                                <span class="text-xs text-indigo-400 font-medium">PC/모바일 최적화 랜딩 페이지</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="font-bold text-indigo-400 text-lg">25만 원 ~</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between border-b border-gray-800 pb-4 items-center">
+                            <div>
+                                <span class="text-lg font-bold block">맞춤 썸네일</span>
+                                <span class="text-xs text-indigo-400 font-medium">썸네일 제작 (플랫폼별 맞춤형)</span>
+                            </div>
+                            <div class="text-right"><span>1만 원 ~</span></div>
+                        </div>
+                        
+                        <div class="flex justify-between border-b border-gray-800 pb-4 items-center">
+                            <div>
+                                <span class="text-lg font-bold block">AI 홍보 영상</span>
+                                <span class="text-xs text-indigo-400 font-medium">15 ~ 30초</span>
+                            </div>
+                            <div class="text-right"><span>5만 원 ~</span></div>
+                        </div>
+                        
+                        <div class="flex justify-between pt-2">
+
+                            <div>
+                                <span class="text-lg font-bold block">코드수정 및 기능개발</span>
+                                <span class="text-xs text-indigo-400 font-medium">중소기업 코드수정/유지보수 위탁</span>
+                            </div>
+                            <div class="italic text-indigo-500"><span>협의 후 결정</span></div>
+
+
+
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="py-20 bg-[#121212] text-center border-t border-gray-800">
+    <footer class="py-20 bg-[#121212] text-center border-t border-gray-800">
         <div class="max-w-xl mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8 italic text-indigo-400">"픽셀톡과 함께하는 새로운 기회!"</h2>
-            <a href="https://open.kakao.com/o/sTWFh0ri" target="_blank" class="block w-full bg-yellow-500 text-gray-900 py-5 rounded-2xl font-black text-2xl hover:bg-yellow-400 transition shadow-xl">
-                <i class="fas fa-comment mr-2"></i> 카카오톡 1:1 상담하기
+            <h2 class="text-2xl font-bold mb-8 italic text-indigo-400">※ 평일/주말/공휴일 1:1 맞춤 강의</h2>
+            <a href="https://open.kakao.com/o/sTWFh0ri" target="_blank" class="block w-full bg-yellow-500 text-gray-900 py-6 rounded-2xl font-black text-2xl hover:bg-yellow-400 transition shadow-2xl scale-105">
+                <i class="fas fa-comment mr-2"></i> 카톡 1:1 상담 (24시간 환영)
             </a>
-            <p class="mt-12 text-gray-600 text-sm">© 2026 PIXELTALK. All rights reserved.</p>
+            <p class="mt-12 text-gray-600 text-xs leading-relaxed">
+                상호: 픽셀톡 | 16년 경력 개발자 & 13년차 실전 유튜버<br>
+                © 2026 PIXELTALK. All rights reserved.
+            </p>
         </div>
     </footer>
 
     <script>
-        // [보안 스크립트] 마우스 우클릭 및 개발자 도구 차단
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('keydown', e => {
-            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73) || (e.ctrlKey && e.keyCode === 85)) {
-                e.preventDefault();
-            }
-        });
-
-        // 햄버거 버튼 동작
+        // 🍔 모바일 메뉴 토글 로직
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuLinks = mobileMenu.querySelectorAll('a');
 
-        menuBtn.addEventListener('click', () => {
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('show');
-            const icon = menuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // 우클릭 및 소스보기 방지
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) e.preventDefault();
         });
 
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('show');
-                const icon = menuBtn.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            });
-        });
-
-        // 비디오 동시 재생 방지
-        document.querySelectorAll('video').forEach(video => {
-            video.addEventListener('play', () => {
-                document.querySelectorAll('video').forEach(v => {
-                    if (v !== video) v.pause();
-                });
+        // 비디오 한 개씩만 재생
+        const videos = document.querySelectorAll('video');
+        videos.forEach(v => {
+            v.addEventListener('play', () => {
+                videos.forEach(other => { if (other !== v) other.pause(); });
             });
         });
     </script>
